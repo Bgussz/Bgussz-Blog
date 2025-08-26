@@ -120,6 +120,11 @@ h1 span{color:var(--primary)}
 /* footer */
 .site-footer{padding:22px 0;text-align:center;background:transparent;color:var(--muted)}
 
+.socials {
+  margin-top: 14px; /* kasih jarak biar ga mepet */
+}
+
+
 /* small screens */
 @media (max-width:880px){
   .hero{flex-direction:column;text-align:center}
@@ -137,3 +142,4 @@ h1 span{color:var(--primary)}
 /* ensure nav link color in dark */
 body.dark .nav-links a{color:var(--muted)}
 body.dark .nav-links a:hover{color:var(--primary)}
+
