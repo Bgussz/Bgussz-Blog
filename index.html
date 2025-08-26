@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Bgussz Blog - Portfolio & Blog Widiarto Eko Bagus Saputro" />
+  <title>Bgussz Blog</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- favicon -->
+  <link rel="icon" href="assets/images/profile.jpg">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <div class="brand">Bgussz Blog</div>
+
+      <button id="burger" class="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Project</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero container animate">
+      <div class="hero-left">
+        <img src="assets/images/profile.jpg" alt="Foto Widiarto Eko Bagus Saputro" class="profile">
+      </div>
+
+      <div class="hero-right">
+        <h1>Hi, I'm <span>Widiarto Eko Bagus Saputro</span> <span class="wave">👋</span></h1>
+        <p class="lead">Mahasiswa Teknik Telekomunikasi — Bidang IoT, Jaringan Seluler dan data science. Di sini saya dokumentasikan project, tutorial, dan catatan riset saya.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">Lihat Project</a>
+          <a class="btn ghost" href="#contact">Hubungi Saya</a>
+        </div>
+
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/widiarto-eko-bagus-saputro-3951b6294/" target="_blank" rel="noopener">LinkedIn</a> •
+          <a href="https://instagram.com/bgussz_" target="_blank" rel="noopener">Instagram</a> •
+          <a href="mailto:widiartoeko05@gmail.com">widiartoeko05@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section container">
+      <h2 class="section-title animate">My Projects 🚀</h2>
+
+      <div class="grid cards animate">
+        <article class="card">
+          <img src="assets/images/project1.jpg" alt="Project LoRa" />
+          <h3>Project IoT : Lora Multi Hop</h3>
+          <p>Evaluasi performa LoRa Multi-Hop untuk </p>
+        </article>
+
+        <article class="card">
+          <img src="assets/images/project2.jpg" alt="IoT Smart Sanitizer" />
+          <h3>Project jaringan Seluler</h3>
+          <p>Desain Jaringan Seluler Guna Analisa Performa Wilayah Urban City</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/images/project3.jpg" alt="Machine Learning" />
+          <h3>Project Data Science Prediction</h3>
+          <p>Model prediktif dan visualisasi data real-time.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="section container">
+      <h2 class="section-title animate">Latest Blog ✍️</h2>
+
+      <div class="grid cards animate">
+        <article class="card">
+          <h3>Pemrograman IoT Dasar</h3>
+          <p>Dasar membuat sistem IoT menggunakan NodeMCU dan LoRa.</p>
+          <a class="readmore" href="#">Read more →</a>
+        </article>
+
+        <article class="card">
+          <h3>Pengenalan Data Science</h3>
+          <p>Alur kerja data scientist & tools yang dipakai.</p>
+          <a class="readmore" href="#">Read more →</a>
+        </article>
+
+        <article class="card">
+          <h3>Belajar GitHub Pages</h3>
+          <p>Cara cepat buat blog & portfolio pakai GitHub Pages.</p>
+          <a class="readmore" href="#">Read more →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container">
+      <h2 class="section-title animate">Contact Me 💬</h2>
+
+      <div class="contact-grid animate">
+        <div class="contact-card">
+          <h3>Hubungi</h3>
+          <p><strong>Email:</strong> <a href="mailto:widiartoeko05@gmail.com">widiartoeko05@gmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/widiarto-eko-bagus-saputro-3951b6294/" target="_blank">widiarto-eko-bagus-saputro</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/bgussz_" target="_blank">@bgussz_</a></p>
+          <p><strong>Telepon / WA:</strong> <a href="https://wa.me/6285602590259" target="_blank">+62 856 0259 0259</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3>About</h3>
+          <p>Ingin kolaborasi? Tertarik dengan project saya? Kirim pesan melalui email atau LinkedIn — saya responsif :)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Bgussz Blog — Built with ❤️</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>
