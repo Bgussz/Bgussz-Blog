@@ -92,7 +92,7 @@ h1 span{color:var(--primary)}
 .hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
 .btn.primary{background:var(--primary);color:#fff;box-shadow:0 6px 18px rgba(44,155,230,0.18)}
-.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
+.btn.ghost{background:transparent;border:3px solid rgba(0,0,0,0.06);color:var(--text)}
 
 /* section titles */
 .section{padding:60px 0}
@@ -142,6 +142,7 @@ h1 span{color:var(--primary)}
 /* ensure nav link color in dark */
 body.dark .nav-links a{color:var(--muted)}
 body.dark .nav-links a:hover{color:var(--primary)}
+
 
 
 
