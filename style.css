@@ -176,6 +176,7 @@ h1 span { color: var(--primary); }
   box-shadow: 0 6px 18px rgba(44,155,230,0.18);
 }
 .btn.primary:hover { transform: translateY(-2px); }
+
 .btn.ghost {
   background: transparent;
   border: 2px solid var(--muted);
@@ -184,6 +185,31 @@ h1 span { color: var(--primary); }
 .btn.ghost:hover {
   background: var(--muted);
   color: #fff;
+}
+
+/* dark mode biar tidak kosong */
+body.dark .btn.ghost {
+  background: rgba(255, 255, 255, 0.04); /* abu abu halus */
+  border: 2px solid var(--muted);
+}
+body.dark .btn.ghost:hover {
+  background: var(--muted);
+  color: #fff;
+}
+
+/* socials */
+.socials {
+  margin-top: 16px;
+}
+.socials a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  transition: color 0.25s;
+}
+.socials a:hover {
+  color: var(--muted);
 }
 
 /* ================================ SECTIONS & CARDS ================================ */
@@ -292,3 +318,4 @@ h1 span { color: var(--primary); }
 /* ================================ DARK MODE ADJUSTMENTS ================================ */
 body.dark .nav-links a { color: var(--muted); }
 body.dark .nav-links a:hover { color: var(--primary); }
+
