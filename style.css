@@ -222,11 +222,10 @@ h1 span {
 
 .btn.ghost {
   background: var(--surface);
+  border: 2px solid transparent;
   color: var(--text);
-  border: 2px solid transparent; /* biar rapi */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: var(--card-shadow);
 }
-
 .btn.ghost:hover {
   background: var(--muted);
   color: #fff;
@@ -363,4 +362,5 @@ body.dark .nav-links a {
 body.dark .nav-links a:hover {
   color: var(--primary);
 }
+
 
