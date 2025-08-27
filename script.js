@@ -1,56 +1,54 @@
-// basic helpers
-const $ = sel => document.querySelector(sel);
-const $$ = sel => document.querySelectorAll(sel);
+// Helper
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
 
-// theme toggle
-const themeToggle = $('#themeToggle');
-const rootBody = document.body;
-const currentTheme = localStorage.getItem('bg-theme');
-if (currentTheme === 'dark') {
-  rootBody.classList.add('dark');
-  themeToggle.textContent = '☀️';
-} else {
-  themeToggle.textContent = '🌙';
+// Theme toggle
+const themeToggle = $('#theme-toggle');
+const root = document.documentElement;
+
+if (localStorage.getItem('theme')) {
+  root.setAttribute('data-theme', localStorage.getItem('theme'));
 }
 
 themeToggle.addEventListener('click', () => {
-  rootBody.classList.toggle('dark');
-  const isDark = rootBody.classList.contains('dark');
-  themeToggle.textContent = isDark ? '☀️' : '🌙';
-  localStorage.setItem('bg-theme', isDark ? 'dark' : 'light');
+  const current = root.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
 });
 
-// burger menu for mobile
-const burger = $('#burger');
+// Burger menu (pakai toggle class)
+const burger = $('.burger');
 const navLinks = $('.nav-links');
-burger && burger.addEventListener('click', () => {
-  navLinks.style.display = navLinks.style.display === 'flex' ? '' : 'flex';
+
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
 });
 
-// smooth scroll for nav
-document.querySelectorAll('.nav-links a').forEach(a=>{
-  a.addEventListener('click', e=>{
+// Smooth scroll
+$$('a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (e) => {
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target){
-      target.scrollIntoView({behavior:'smooth', block:'start'});
-      // close mobile menu if open
-      if(window.innerWidth < 880) navLinks.style.display = '';
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      navLinks.classList.remove('open'); // Tutup menu setelah klik
     }
   });
 });
 
-// set year
-document.getElementById('year').textContent = new Date().getFullYear();
+// Intersection animations
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
 
-// intersection observer for animations (fade-up)
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:0.18});
-
-document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+$$('section').forEach((section) => {
+  observer.observe(section);
+});
