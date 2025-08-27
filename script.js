@@ -1,54 +1,57 @@
-// Helper
-const $ = (s) => document.querySelector(s);
-const $$ = (s) => document.querySelectorAll(s);
+// basic helpers
+const $ = sel => document.querySelector(sel);
+const $$ = sel => document.querySelectorAll(sel);
 
-// Theme toggle
-const themeToggle = $('#theme-toggle');
-const root = document.documentElement;
+// theme toggle
+const themeToggle = $('#themeToggle');
+const rootBody = document.body;
+const currentTheme = localStorage.getItem('bg-theme');
 
-if (localStorage.getItem('theme')) {
-  root.setAttribute('data-theme', localStorage.getItem('theme'));
+if (currentTheme === 'dark') {
+  rootBody.classList.add('dark');
+  themeToggle.textContent = '☀️';
+} else {
+  themeToggle.textContent = '🌙';
 }
 
 themeToggle.addEventListener('click', () => {
-  const current = root.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
+  rootBody.classList.toggle('dark');
+  const isDark = rootBody.classList.contains('dark');
+  themeToggle.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('bg-theme', isDark ? 'dark' : 'light');
 });
 
-// Burger menu (pakai toggle class)
-const burger = $('.burger');
+// burger menu (pakai toggle class)
+const burger = $('#burger');
 const navLinks = $('.nav-links');
 
-burger.addEventListener('click', () => {
+burger && burger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-// Smooth scroll
-$$('a[href^="#"]').forEach((link) => {
-  link.addEventListener('click', (e) => {
+// smooth scroll
+$$('.nav-links a').forEach(a => {
+  a.addEventListener('click', e => {
     e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
+    const target = document.querySelector(a.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-      navLinks.classList.remove('open'); // Tutup menu setelah klik
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      navLinks.classList.remove('open'); // close mobile menu
     }
   });
 });
 
-// Intersection animations
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
+// set year
+$('#year').textContent = new Date().getFullYear();
 
-$$('section').forEach((section) => {
-  observer.observe(section);
-});
+// intersection observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.18 });
+
+$$('.animate').forEach(el => observer.observe(el));
